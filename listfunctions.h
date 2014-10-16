@@ -34,6 +34,18 @@ int indexOf(const List& lst, const Elem& s)
     return -1;
 }
 
+template<typename List, typename Elem>
+void setElementAt(List& lst, int pos, const Elem& elem)
+{
+    lst[pos] = elem;
+}
+
+template <typename T, typename U, typename V>
+void map3(U& inputlst, V& outputlst, T func)
+{
+    for (int i: indices(inputlst)) setElementAt(outputlst,i,func(elementAt(inputlst,i)));
+}
+
 }
 
 }
