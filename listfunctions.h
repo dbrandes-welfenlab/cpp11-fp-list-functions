@@ -40,9 +40,16 @@ void setElementAt(List& lst, int pos, const Elem& elem)
     lst[pos] = elem;
 }
 
+template<typename List, typename Elem>
+void resizeOuter(List& lst, int size)
+{
+    lst.resize(size);
+}
+
 template <typename T, typename U, typename V>
 void map3(U& inputlst, V& outputlst, T func)
 {
+    resizeOuter(outputlst,len(inputlst));
     for (int i: indices(inputlst)) setElementAt(outputlst,i,func(elementAt(inputlst,i)));
 }
 
