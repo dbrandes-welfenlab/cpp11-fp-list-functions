@@ -40,7 +40,7 @@ void setElementAt(List& lst, int pos, const Elem& elem)
     lst[pos] = elem;
 }
 
-template<typename List, typename Elem>
+template<typename List>
 void resizeOuter(List& lst, int size)
 {
     lst.resize(size);
