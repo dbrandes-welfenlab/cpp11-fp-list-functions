@@ -53,6 +53,13 @@ void map3(U& inputlst, V& outputlst, T func)
     for (int i: indices(inputlst)) setElementAt(outputlst,i,func(elementAt(inputlst,i)));
 }
 
+template <typename T, typename U, typename V, typename W, typename X>
+void map5(U& inputlst, V& outputlst, T func, W func2, X& data)
+{
+    resizeOuter(outputlst,len(inputlst));
+    for (int i: indices(inputlst)) setElementAt(outputlst,func2(i,data),func(elementAt(inputlst,i),i,data));
+}
+
 }
 
 }
