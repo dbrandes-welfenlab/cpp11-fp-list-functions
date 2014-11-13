@@ -60,6 +60,13 @@ void map5(U& inputlst, V& outputlst, T func, W func2, X& data)
     for (int i: indices(inputlst)) setElementAt(outputlst,func2(i,data),func(elementAt(inputlst,i),i,data));
 }
 
+template <typename T, typename U>
+void reverse2(T& inputlst, U& outputlst)
+{
+    resizeOuter(outputlst,len(inputlst));
+    for (int i: indices(inputlst)) setElementAt(outputlst,len(inputlst) - 1 - i, elementAt(inputlst,i));
+}
+
 }
 
 }
