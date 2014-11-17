@@ -42,6 +42,7 @@ bool containsSequenced(const List& lst, const Elem& e1, const Elem& e2)
         if (elementAt(lst,i) == e1) p1 = i;
         if (elementAt(lst,i) == e2) p2 = i;
     }
+    if ((p1 == -1) || (p2 == -1)) return false;
     if ((p1 == (len(lst) - 1)) && (p2 == 0)) return true;
     if ((p2 - p1) == 1) return true;
     return false;
