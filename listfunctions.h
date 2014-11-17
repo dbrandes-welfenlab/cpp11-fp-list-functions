@@ -46,25 +46,33 @@ void resizeOuter(List& lst, int size)
     lst.resize(size);
 }
 
+template <typename T, typename U, typename V, typename W, typename X>
+void mapF(U& inputlst, V& outputlst, T func, W func2)
+{
+    resizeOuter(outputlst,len(inputlst));
+    for (int i: indices(inputlst)) setElementAt(outputlst,func2(i),func(elementAt(inputlst,i),i));
+}
+
 template <typename T, typename U, typename V>
-void map3(U& inputlst, V& outputlst, T func)
+void mapF(U& inputlst, V& outputlst, T func)
 {
     resizeOuter(outputlst,len(inputlst));
     for (int i: indices(inputlst)) setElementAt(outputlst,i,func(elementAt(inputlst,i)));
 }
 
-template <typename T, typename U, typename V, typename W, typename X>
-void map5(U& inputlst, V& outputlst, T func, W func2, X& data)
-{
-    resizeOuter(outputlst,len(inputlst));
-    for (int i: indices(inputlst)) setElementAt(outputlst,func2(i,data),func(elementAt(inputlst,i),i,data));
-}
 
 template <typename T, typename U>
-void reverse2(T& inputlst, U& outputlst)
+void reverseL(T& inputlst, U& outputlst)
 {
     resizeOuter(outputlst,len(inputlst));
     for (int i: indices(inputlst)) setElementAt(outputlst,len(inputlst) - 1 - i, elementAt(inputlst,i));
+}
+
+template <typename T, typename U>
+int getIndex(const T& lst, const U& elem)
+{
+    for (int i: indices(lst)) if (elementAt(lst,i) == elem) return i;
+    return -1;
 }
 
 }

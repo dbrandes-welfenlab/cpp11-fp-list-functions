@@ -8,7 +8,7 @@ using util::lang::elementAt;
 using util::lang::setElementAt;
 using util::lang::indexOf;
 using util::lang::slice;
-using util::lang::map3;
+using util::lang::mapF;
 
 void testLenElementAt()
 {
@@ -63,14 +63,14 @@ void testCircListFuncs()
     assert(testcirc[3] == 1);
 }
 
-void testMap3()
+void testMapF()
 {
-    std::cout << "test map3" << std::endl;
+    std::cout << "test mapF" << std::endl;
     auto mult2 = [](double x) -> double{return x * 2;};
     std::vector<int> testvec, resultvec;
     testvec = {0,1,2,3};
     resultvec.resize(3,-1);
-    map3(testvec,resultvec,mult2);
+    mapF(testvec,resultvec,mult2);
     assert(resultvec[0] == 0);
     assert(resultvec[1] == 2);
     assert(resultvec[2] == 4);
@@ -82,7 +82,7 @@ int main()
     testSetElementAt();
     testListFuncs();
     testCircListFuncs();
-    testMap3();
+    testMapF();
     return 0;
 }
 
