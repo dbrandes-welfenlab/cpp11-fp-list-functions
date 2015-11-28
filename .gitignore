@@ -6,5 +6,6 @@ cpp11-fp-list-functions.files
 cpp11-fp-list-functions.includes
 cpp11-fp-list-functions.creator.user
 *pro.user.*
+*creator.user.*
 main
 
