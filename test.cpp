@@ -2,6 +2,9 @@
 #include <assert.h>
 
 #include "circularlistfunctions.h"
+#include "listfunctionseigen.h"
+
+#include <kennytm/utils/traits.hpp>
 
 using util::lang::len;
 using util::lang::elementAt;
@@ -9,6 +12,7 @@ using util::lang::setElementAt;
 using util::lang::indexOf;
 using util::lang::slice;
 using util::lang::mapF;
+using util::lang::zip;
 
 void testLenElementAt()
 {
@@ -71,9 +75,22 @@ void testMapF()
     testvec = {0,1,2,3};
     resultvec.resize(3,-1);
     mapF(testvec,resultvec,mult2);
+    std::vector<double> resultvec2 = mapF(testvec,mult2);
     assert(resultvec[0] == 0);
     assert(resultvec[1] == 2);
     assert(resultvec[2] == 4);
+    assert(resultvec2[0] == 0);
+    assert(resultvec2[1] == 2);
+    assert(resultvec2[2] == 4);
+}
+
+void typeOfLambda()
+{
+    auto func = [](int a){return a;};
+    //typedef utils::function_traits<decltype(func)> traits;
+    //traits::result_type var = 0;
+    utils::function_traits<decltype(func)>::result_type var = 0;
+    std::cout << var << std::endl;
 }
 
 int main()
@@ -83,6 +100,7 @@ int main()
     testListFuncs();
     testCircListFuncs();
     testMapF();
+    typeOfLambda();
     return 0;
 }
 

@@ -3,12 +3,12 @@
 
 #include <vector>
 #include <cpp11-range/range.hpp>
+#include <kennytm/utils/traits.hpp>
 
 namespace util
 {
     namespace lang
     {
-
         template<typename List>
         int len(const List& lst)
         {
@@ -46,8 +46,8 @@ namespace util
             lst.resize(size);
         }
 
-        template <typename T, typename U, typename V, typename W, typename X>
-        void mapF(U& inputlst, V& outputlst, T func, W func2)
+        template <typename T, typename U, typename V, typename W>
+        void map2F(U& inputlst, V& outputlst, T func, W func2)
         {
             resizeOuter(outputlst,len(inputlst));
             for (int i: indices(inputlst)) setElementAt(outputlst,func2(i),func(elementAt(inputlst,i),i));
@@ -58,6 +58,26 @@ namespace util
         {
             resizeOuter(outputlst,len(inputlst));
             for (int i: indices(inputlst)) setElementAt(outputlst,i,func(elementAt(inputlst,i)));
+        }
+
+        template <typename T, typename U, typename W>
+        auto map2F(U& inputlst, T func, W func2) -> std::vector<typename utils::function_traits<T>::result_type>
+        {
+            typedef std::vector<typename utils::function_traits<T>::result_type> VecT;
+            VecT outputlst;
+            resizeOuter(outputlst,len(inputlst));
+            for (int i: indices(inputlst)) setElementAt(outputlst,func2(i),func(elementAt(inputlst,i),i));
+            return outputlst;
+        }
+
+        template <typename T, typename U>
+        auto mapF(U& inputlst, T func) -> std::vector<typename utils::function_traits<T>::result_type>
+        {
+            typedef std::vector<typename utils::function_traits<T>::result_type> VecT;
+            VecT outputlst;
+            resizeOuter(outputlst,len(inputlst));
+            for (int i: indices(inputlst)) setElementAt(outputlst,i,func(elementAt(inputlst,i)));
+            return outputlst;
         }
 
 
@@ -74,22 +94,7 @@ namespace util
             for (int i: indices(lst)) if (elementAt(lst,i) == elem) return i;
             return -1;
         }
-
-        template <typename T, typename U>
-        void zip(const std::vector<T>& vec1, const std::vector<T>& vec2, std::vector<U>& result)
-        {
-            assert(vec1.size() == vec2.size());
-            for (int i: indices(vec1))
-            {
-                Eigen::Matrix<T,2,1> vec;
-                vec[0] = vec1[i];
-                vec[1] = vec2[i];
-                result.push_back(vec);
-            }
-        }
-
     }
-
 }
 
 #endif // LISTFUNCTIONS_H
