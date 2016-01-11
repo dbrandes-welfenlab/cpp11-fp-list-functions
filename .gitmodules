@@ -1,0 +1,6 @@
+[submodule "extern/kennytm/utils"]
+	path = extern/kennytm/utils
+	url = https://github.com/kennytm/utils.git
+[submodule "extern/cpp11-range"]
+	path = extern/cpp11-range
+	url = https://github.com/klmr/cpp11-range.git
