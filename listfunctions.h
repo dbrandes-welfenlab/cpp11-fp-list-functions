@@ -35,6 +35,19 @@ namespace util
         }
 
         template<typename List, typename Elem>
+        bool contains(const List& lst, const Elem& s)
+        {
+            for (int i:indices(lst))
+            {
+                if (elementAt(lst,i) == s)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        template<typename List, typename Elem>
         void setElementAt(List& lst, int pos, const Elem& elem)
         {
             lst[pos] = elem;
