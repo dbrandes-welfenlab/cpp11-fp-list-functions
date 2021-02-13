@@ -2,8 +2,8 @@
 #define LISTFUNCTIONS_H
 
 #include <vector>
-#include "extern/cpp11-range/range.hpp"
-#include "extern/kennytm/utils/traits.hpp"
+#include "range.hpp"
+#include "traits.hpp"
 
 namespace util
 {
