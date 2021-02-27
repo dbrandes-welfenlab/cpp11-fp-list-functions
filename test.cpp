@@ -1,10 +1,10 @@
 #include <iostream>
 #include <assert.h>
 
-#include "circularlistfunctions.h"
-#include "listfunctionseigen.h"
+#include "cpp11_fp_list_functions/circularlistfunctions.h"
+#include "cpp11_fp_list_functions/listfunctionseigen.h"
 
-#include <kennytm/utils/traits.hpp>
+#include <kennytm_utils_traits/traits.hpp>
 
 using util::lang::len;
 using util::lang::elementAt;
