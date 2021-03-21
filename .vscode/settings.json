@@ -1,0 +1,14 @@
+{
+    "editor.formatOnSave": true,
+    "editor.snippetSuggestions": "top",
+    "editor.suggestSelection": "first",
+    "[cpp]": {
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+    },
+    "files.watcherExclude": {
+        "**/.git/**": true,
+    },
+    "files.insertFinalNewline": true,
+    "editor.definitionLinkOpensInPeek": false,
+    "editor.suggest.filterGraceful": false,
+}

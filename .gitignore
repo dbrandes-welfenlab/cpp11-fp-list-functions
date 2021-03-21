@@ -7,6 +7,7 @@ cpp11-fp-list-functions.includes
 cpp11-fp-list-functions.creator.user
 *pro.user.*
 *creator.user.*
-main
+test
 extern
-
+compile_commands.json
+.cache
